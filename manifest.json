@@ -1,0 +1,21 @@
+{
+  "name": "App Laundry Cahyan",
+  "short_name": "Laundry",
+  "description": "Membuat Aplikasi Laundry sederhana dengan javascript PWA",
+  "icons": [
+    {
+      "src": "assets/images/Banner1.png",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/Banner1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1F3641",
+  "background_color": "#ffffff",
+  "prefer_related_applications": false
+}

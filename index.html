@@ -2,226 +2,243 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laaundry</title>
+  <title>App Laundry Cahyan</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
+  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet"> -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="assets/images/Banner1.png" />
+
+  <link rel="manifest" href="manifest.json" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
 </head>
 
-<body class="bg-secondary">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-    }
+<body class="align-items-start pt-0 flex-column">
+  <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm12 col-12 pt-0 pl-0 pr-0">
 
-    #splash {
-      text-align: center;
-    }
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        align-items: center;
 
-    #splash img {
-      width: 100px;
-      height: 100px;
-    }
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
 
-    #splash h1 {
-      font-size: 24px;
-      margin-top: 10px;
-    }
+      #splash {
+        text-align: center;
+      }
 
-    #main-content {
-      display: none;
-    }
-  </style>
-  <div id="splash">
-    <img src="images/Banner1.png" alt="Icon">
-    <h1>Loading...</h1>
-  </div>
+      #splash img {
+        width: 100px;
+        height: 100px;
+      }
 
-  <div id="main-content"
-    class="container p-0 shadow mb-5 mt-4 rounded-5 bg-success text-bg-success border-info fw-bold">
-    <nav class="d-md-flex p-3">
-      <div>
-        <h1>Laundry</h1>
-      </div>
-      <div id="Tombolpesan" class="ms-auto my-auto">
-        <ul class="list-inline m-0">
-          <li class="list-inline-item mx-md-3"><a href="#collections" class="text-decoration-none text-dark">Prodak
-              Kami</a></li>
-          <li class="list-inline-item mx-md-3"><a href="#tentang" class="text-decoration-none text-dark">Tentang
-              kami</a></li>
-          <li class="list-inline-item mx-md-3"><a href="#oder" class="text-decoration-none text-dark">Cara Order</a>
-          </li>
-          <li class="list-inline-item mx-md-3"><a href="index2.html"
-              class="text-decoration-none text-dark">Pesan/order</a>
-        </ul>
-      </div>
-    </nav>
+      #splash h1 {
+        font-size: 24px;
+        margin-top: 10px;
+      }
 
-    <div class="px-4 mb-4">
-      <img src="images/Banner1.png" class="w-100" />
+      #main-content {
+        display: none;
+      }
+    </style>
+    <div id="splash">
+      <img src="images/Banner1.png" alt="Icon">
+      <h1>Loading...</h1>
     </div>
 
-    <h3 class="text-center" id="collections">Laundry Cahyan</h3>
-    <div class="text-center w-50 mx-auto fw-light">Selamat datang di toko Laundry kami!! silahkan dilihat lihat dulu
-      harga jasa yang kami sediakan ingin.</div>
-
-    <div class="row row-cols-md-3 gx-5 p-5 ">
-
-      <!--produk1-->
-      <div class="col-md-4 mb-5 from">
-        <div class="card shadow">
-          <img src="images/celana1.png" class="card-img-top" />
-          <div class="card-body">
-            <p class="card-text">Celana Jeans
-            <p class="text-success">Untuk Celana Jeans karna sangat lumayan berat kami bedakan kiloan nya untuk lebih
-              memotong harga jasa kami</p>
-            </p>
-          </div>
-          <div class="d-none deskripsi">
-          </div>
-
-          <div class="card-footer d-lg-flex">
-            <span class="ms-auto text-danger fw-bold d-block text-center harga ">Rp.5.000/Kg</span>
-
-          </div>
-
-
+    <div id="main-content"
+      class="container p-0 shadow mb-5 mt-4 rounded-5 bg-success text-bg-success border-info fw-bold">
+      <nav class="d-md-flex p-3">
+        <div>
+          <h1>Laundry</h1>
         </div>
-      </div>
-
-      <!--produk2-->
-      <div class="col-md-4 mb-5">
-        <div class="card shadow">
-          <img src="images/Baju1.png" class="card-img-top" />
-          <div class="card-body">
-            <p class="card-text">Kaos dan Celana</p>
-            <p class="text-success">Untuk baju kami akan satukan saja dengan pencucian celana tapi berbeda dengan celana
-              jeans</p>
-          </div>
-          <div class="d-none deskripsi">
-          </div>
-
-          <div class="card-footer d-lg-flex">
-            <span class="ms-auto text-danger fw-bold d-block text-center harga">Rp.10.000/Kg</span>
-          </div>
-
-
+        <div id="Tombolpesan" class="ms-auto my-auto">
+          <ul class="list-inline m-0">
+            <li class="list-inline-item mx-md-3"><a href="#collections" class="text-decoration-none text-dark">Prodak
+                Kami</a></li>
+            <li class="list-inline-item mx-md-3"><a href="#tentang" class="text-decoration-none text-dark">Tentang
+                kami</a></li>
+            <li class="list-inline-item mx-md-3"><a href="#oder" class="text-decoration-none text-dark">Cara Order</a>
+            </li>
+            <li class="list-inline-item mx-md-3"><a href="index2.html"
+                class="text-decoration-none text-dark">Pesan/order</a>
+          </ul>
         </div>
+      </nav>
+
+      <div class="px-4 mb-4">
+        <img src="images/Banner1.png" class="w-100" />
       </div>
 
-      <!--produk3-->
-      <div class="col-md-4 mb-5">
-        <div class="card shadow">
-          <img src="images/Baju2.png" class="card-img-top" />
-          <div class="card-body">
-            <p class="card-text">Kemeja Putih</p>
-            <p class="text-success">Untuk kemeja putih kami akan bedakan tempat penyuciannya maka dari segi harga agak
-              mahal tapi kami tarip harga per kilo sama dengan tarif harga baju perkilo1</p>
-          </div>
-          <div class="d-none deskripsi">
-          </div>
+      <h3 class="text-center" id="collections">Laundry Cahyan</h3>
+      <div class="text-center w-50 mx-auto fw-light">Selamat datang di toko Laundry kami!! silahkan dilihat lihat dulu
+        harga jasa yang kami sediakan ingin.</div>
 
-          <div class="card-footer d-lg-flex">
-            <span class="ms-auto text-danger fw-bold d-block text-center harga">Rp10.000/Kg</span>
-          </div>
+      <div class="row row-cols-md-3 gx-5 p-5 ">
 
-
-        </div>
-      </div>
-    </div>
-
-    <div id="tentang" class="px-4 py-4 bg-light text-center rounded-5">
-      <div class="mx-auto w-7">
-        <h3 class="text-dark">Tentang Kami</h3>
-        <p class="text-center text-dark"><img src="images/icon1.png" style="width: 50px ; height: auto"
-            class="me-3 mb-3" /> "Kami adalah toko yang berkomitmen untuk menyediakan jasa berkualitas tinggi dengan
-          harga terbaik. Dengan pengalaman puluhan tahun dalam industri ini, kami siap melayani semua kebutuhan Laundry
-          Anda."
-        </p>
-      </div>
-    </div>
-
-    <div id="oder" class="px-4 py-4 bg-success text-center rounded-5">
-      <div class="mx-auto w-7">
-        <h3 class="text-light">Cara Order</h3>
-        <p class="text-center text-light"><img src="images/order.png" style="width: 80px ; height: auto"
-            class="me-3 mb-3 float-end" /><a href="index2.html" class="text-decoration-none text-dark">Klik tombol
-            Pesan/Order disini</a>
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center p-4 border-top ">&copy; 2023 Laundry - Laundry Cahyan</div>
-  </div>
-
-  <button type="button" class="btn btn-primary d-none btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 modalTitle" id="exampleModalLabel"></h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body row">
-          <div class="modalImage col-md-6 col-12"></div>
-          <div class="col-md-6 col-12">
-
-            <div class="modalDeskripsi"></div>
-            <div class="d-md-flex">
-              <a href="#" class="ms-auto btn btn-sm btn-danger d-block btnBeli ">Beli Produk ini!!</a>
-              <span class="ms-auto text-danger fw-bold d-block text-center modalHarga "></span>
+        <!--produk1-->
+        <div class="col-md-4 mb-5 from">
+          <div class="card shadow">
+            <img src="images/celana1.png" class="card-img-top" />
+            <div class="card-body">
+              <p class="card-text">Celana Jeans
+              <p class="text-success">Untuk Celana Jeans karna sangat lumayan berat kami bedakan kiloan nya untuk lebih
+                memotong harga jasa kami</p>
+              </p>
+            </div>
+            <div class="d-none deskripsi">
             </div>
 
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+            <div class="card-footer d-lg-flex">
+              <span class="ms-auto text-danger fw-bold d-block text-center harga ">Rp.5.000/Kg</span>
 
-  <button type="button" class="btn btn-primary d-none btnModal1" data-bs-toggle="modal"
-    data-bs-target="#exampleModalEdit">
-    Launch demo modal
-  </button>
-
-  <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabelEdit"
-    aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 modalTitle" id="exampleModalLabelEdit"></h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body row">
-          <div class="modalImage col-md-6 col-12"></div>
-          <div class="col-md-6 col-12">
-
-            <div class="modalDeskripsi"></div>
-            <div class="d-md-flex">
-              <a href="#" class="ms-auto btn btn-sm btn-danger d-block btnEdit ">Edit saja!!</a>
-              <span class="ms-auto text-danger fw-bold d-block text-center modalHarga "></span>
             </div>
 
+
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        <!--produk2-->
+        <div class="col-md-4 mb-5">
+          <div class="card shadow">
+            <img src="images/Baju1.png" class="card-img-top" />
+            <div class="card-body">
+              <p class="card-text">Kaos dan Celana</p>
+              <p class="text-success">Untuk baju kami akan satukan saja dengan pencucian celana tapi berbeda dengan
+                celana
+                jeans</p>
+            </div>
+            <div class="d-none deskripsi">
+            </div>
+
+            <div class="card-footer d-lg-flex">
+              <span class="ms-auto text-danger fw-bold d-block text-center harga">Rp.10.000/Kg</span>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!--produk3-->
+        <div class="col-md-4 mb-5">
+          <div class="card shadow">
+            <img src="images/Baju2.png" class="card-img-top" />
+            <div class="card-body">
+              <p class="card-text">Kemeja Putih</p>
+              <p class="text-success">Untuk kemeja putih kami akan bedakan tempat penyuciannya maka dari segi harga agak
+                mahal tapi kami tarip harga per kilo sama dengan tarif harga baju perkilo1</p>
+            </div>
+            <div class="d-none deskripsi">
+            </div>
+
+            <div class="card-footer d-lg-flex">
+              <span class="ms-auto text-danger fw-bold d-block text-center harga">Rp10.000/Kg</span>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div id="tentang" class="px-4 py-4 bg-light text-center rounded-5">
+        <div class="mx-auto w-7">
+          <h3 class="text-dark">Tentang Kami</h3>
+          <p class="text-center text-dark"><img src="images/icon1.png" style="width: 50px ; height: auto"
+              class="me-3 mb-3" /> "Kami adalah toko yang berkomitmen untuk menyediakan jasa berkualitas tinggi dengan
+            harga terbaik. Dengan pengalaman puluhan tahun dalam industri ini, kami siap melayani semua kebutuhan
+            Laundry
+            Anda."
+          </p>
+        </div>
+      </div>
+
+      <div id="oder" class="px-4 py-4 bg-success text-center rounded-5">
+        <div class="mx-auto w-7">
+          <h3 class="text-light">Cara Order</h3>
+          <p class="text-center text-light"><img src="images/order.png" style="width: 80px ; height: auto"
+              class="me-3 mb-3 float-end" /><a href="index2.html" class="text-decoration-none text-dark">Klik tombol
+              Pesan/Order disini</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center p-4 border-top ">&copy; 2023 Laundry - Laundry Cahyan</div>
+    </div>
+
+    <button type="button" class="btn btn-primary d-none btnModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 modalTitle" id="exampleModalLabel"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row">
+            <div class="modalImage col-md-6 col-12"></div>
+            <div class="col-md-6 col-12">
+
+              <div class="modalDeskripsi"></div>
+              <div class="d-md-flex">
+                <a href="#" class="ms-auto btn btn-sm btn-danger d-block btnBeli ">Beli Produk ini!!</a>
+                <span class="ms-auto text-danger fw-bold d-block text-center modalHarga "></span>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <button type="button" class="btn btn-primary d-none btnModal1" data-bs-toggle="modal"
+      data-bs-target="#exampleModalEdit">
+      Launch demo modal
+    </button>
+
+    <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabelEdit"
+      aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 modalTitle" id="exampleModalLabelEdit"></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body row">
+            <div class="modalImage col-md-6 col-12"></div>
+            <div class="col-md-6 col-12">
+
+              <div class="modalDeskripsi"></div>
+              <div class="d-md-flex">
+                <a href="#" class="ms-auto btn btn-sm btn-danger d-block btnEdit ">Edit saja!!</a>
+                <span class="ms-auto text-danger fw-bold d-block text-center modalHarga "></span>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
@@ -237,6 +254,12 @@
   <script src="script.js"></script>
   <script src="service-worker.js"></script>
   <script src="styles.css"></script>
+
+  <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/register.js"></script>
+  <script src="service-worker.js"></script>
 </body>
 
 </html>
