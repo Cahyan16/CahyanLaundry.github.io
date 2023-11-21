@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan Barang</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <h2>Pilih Barang</h2>
+
+    <div class="row">
+      <!-- Barang 1: Celana & Baju -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="images/Baju1.png" class="card-img-top" alt="Celana & Baju">
+          <div class="card-body">
+            <h5 class="card-title">Celana & Baju</h5>
+            <button class="btn btn-primary" onclick="tambahBarang('Celana & Baju', 10000)">Tambahkan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barang 2: Kemeja Putih -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="images/Baju2.png" class="card-img-top" alt="Kemeja Putih">
+          <div class="card-body">
+            <h5 class="card-title">Kemeja Putih</h5>
+            <button class="btn btn-primary" onclick="tambahBarang('Kemeja Putih', 10000)">Tambahkan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barang 3: Celana Jeans -->
+      <div class="col-md-4">
+        <div class="card">
+          <img src="images/celana1.png" class="card-img-top" alt="Celana Jeans">
+          <div class="card-body">
+            <h5 class="card-title">Celana Jeans</h5>
+            <button class="btn btn-primary" onclick="tambahBarang('Celana Jeans', 5000)">Tambahkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Input Jumlah Kiloan</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="kiloan">Jumlah Kiloan:</label>
+        <input type="number" id="kiloan" class="form-control">
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Ringkasan Pesanan</h2>
+    <div id="ringkasanPesanan"></div>
+
+    <button class="btn btn-success mt-3" onclick="prosesPesanan()">Pesan Sekarang</button>
+  </div>
+
+  <script>
+    let pesanan = [];
+
+    function tambahBarang(nama, harga) {
+      const kiloan = document.getElementById('kiloan').value;
+      const total = kiloan * harga;
+
+      pesanan.push({
+        nama: nama,
+        kiloan: kiloan,
+        harga: harga,
+        total: total
+      });
+
+      updateRingkasanPesanan();
+    }
+
+    function updateRingkasanPesanan() {
+      const ringkasanPesanan = document.getElementById('ringkasanPesanan');
+      ringkasanPesanan.innerHTML = '';
+
+      pesanan.forEach(item => {
+        ringkasanPesanan.innerHTML += `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.nama}</h5>
+                        <p class="card-text">Jumlah: ${item.kiloan}</p>
+                        <p class="card-text">Total: ${item.total}</p>
+                        <button class="btn btn-warning" onclick="editBarang('${item.nama}')">Edit</button>
+                        <button class="btn btn-danger" onclick="hapusBarang('${item.nama}')">Hapus</button>
+                    </div>
+                </div>
+            `;
+      });
+    }
+
+    function editBarang(nama) {
+      const index = pesanan.findIndex(item => item.nama === nama);
+
+      if (index !== -1) {
+        const newKiloan = prompt(`Edit jumlah kiloan untuk ${nama}:`, pesanan[index].kiloan);
+
+        if (newKiloan !== null && !isNaN(newKiloan)) {
+          pesanan[index].kiloan = parseFloat(newKiloan);
+          pesanan[index].total = pesanan[index].kiloan * pesanan[index].harga;
+          updateRingkasanPesanan();
+        }
+      }
+    }
+
+    function updateRingkasanPesanan() {
+      const ringkasanPesanan = document.getElementById('ringkasanPesanan');
+      ringkasanPesanan.innerHTML = '';
+
+      pesanan.forEach((item, index) => {
+        ringkasanPesanan.innerHTML += `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${item.nama}</h5>
+            <p class="card-text">Jumlah: ${item.kiloan}</p>
+            <p class="card-text">Total: ${item.total}</p>
+            <button class="btn btn-warning" onclick="editBarang('${item.nama}')">Edit</button>
+            <button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button>
+          </div>
+        </div>
+      `;
+      });
+    }
+
+    function hapusBarang(index) {
+      pesanan.splice(index, 1);
+      updateRingkasanPesanan();
+    }
+
+    function prosesPesanan() {
+      // Cek apakah ada pesanan yang dimasukkan
+      if (pesanan.length === 0) {
+        alert('Tambahkan barang ke dalam pesanan terlebih dahulu.');
+        return;
+      }
+
+      // Membuat pesan WhatsApp dengan detail pesanan
+      let pesanWhatsApp = 'Pesanan baru:\n';
+      pesanan.forEach(item => {
+        pesanWhatsApp += `${item.nama} - Jumlah: ${item.kiloan} kg - Total: ${item.total} \n`;
+      });
+
+      // Membuka aplikasi WhatsApp dengan pesan yang sudah diisi
+      window.open(`https://wa.me/6281295059739?text=${encodeURIComponent(pesanWhatsApp)}`, '_blank');
+
+      // Memberikan pemberitahuan bahwa pesanan telah diproses
+      alert('Pesanan telah diproses. Silakan hubungi +62 812-9505-9739 melalui WhatsApp untuk konfirmasi.');
+    }
+
+  </script>
+
+</body>
+
+</html>

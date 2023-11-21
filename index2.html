@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laundry</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="bg-secondary">
+  <div class="container p-0 shadow mb-5 mt-4 rounded-5 bg-success- text-bg-success border-info fw-bold">
+
+    <!--menu grosir-->
+    <nav class="d-md-flex p-3">
+      <div>
+        <h1>Laundry</h1>
+      </div>
+      <div class="ms-auto my-auto">
+        <ul class="list-inline m-0">
+          <li class="list-inline-item mx-md-3"><a href="#collections" class="text-decoration-none text-dark">Pesan</a>
+          </li>
+          <li class="list-inline-item mx-md-3"><a href="index.html" class="text-decoration-none text-dark">Back</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!--banner grosir-->
+    <div class="px-4 mb-4">
+      <img src="images/Banner1.png" class="w-100" />
+    </div>
+
+    <!--catalogue-->
+    <h3 class="text-center" id="collections">Collections</h3>
+    <div class="text-center w-50 mx-auto fw-light">Selamat datang di toko grosir kami!! silahkan masukan pesanan.</div>
+
+    <div class="container mt-5">
+      <h2>Pilih Barang</h2>
+
+      <div class="row">
+        <!-- Barang 1: Celana & Baju -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/Baju1.png" class="card-img-top" alt="Celana & Baju">
+            <div class="card-body">
+              <h5 class="card-title">Celana & Baju</h5>
+              <button class="btn btn-primary" onclick="tambahBarang('Celana & Baju', 10000)">Tambahkan</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barang 2: Kemeja Putih -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/Baju2.png" class="card-img-top" alt="Kemeja Putih">
+            <div class="card-body">
+              <h5 class="card-title">Kemeja Putih</h5>
+              <button class="btn btn-primary" onclick="tambahBarang('Kemeja Putih', 10000)">Tambahkan</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barang 3: Celana Jeans -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="images/celana1.png" class="card-img-top" alt="Celana Jeans">
+            <div class="card-body">
+              <h5 class="card-title">Celana Jeans</h5>
+              <button class="btn btn-primary" onclick="tambahBarang('Celana Jeans', 5000)">Tambahkan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>Input Jumlah Kiloan</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <label for="kiloan">Jumlah Kiloan:</label>
+          <input type="number" id="kiloan" class="form-control">
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>Ringkasan Pesanan</h2>
+      <div id="ringkasanPesanan"></div>
+
+      <button class="btn btn-warning mt-3" onclick="prosesPesanan()">Pesan Sekarang</button>
+    </div>
+
+    <!--tentang kami-->
+    <div id="tentang" class="px-4 py-4 bg-light text-center rounded-5">
+      <div class="mx-auto w-7">
+        <h3 class="text-dark">Tentang Kami</h3>
+        <p class="text-center text-dark"><img src="images/icon1.png" style="width: 50px ; height: auto"
+            class="me-3 mb-3" /> "Kami adalah toko yang berkomitmen untuk menyediakan jasa berkualitas
+          tinggi dengan harga terbaik. Dengan pengalaman puluhan tahun dalam industri ini, kami siap melayani semua
+          kebutuhan Laundry Anda."
+        </p>
+      </div>
+    </div>
+
+    <!--copy right-->
+    <div class="text-center p-4 border-top ">&copy; 2023 Laundry - Laundry Cahyan</div>
+  </div>
+
+  <script>
+    let pesanan = [];
+
+    function tambahBarang(nama, harga) {
+      const kiloan = document.getElementById('kiloan').value;
+      const total = kiloan * harga;
+
+      pesanan.push({
+        nama: nama,
+        kiloan: kiloan,
+        harga: harga,
+        total: total
+      });
+
+      updateRingkasanPesanan();
+    }
+
+    function updateRingkasanPesanan() {
+      const ringkasanPesanan = document.getElementById('ringkasanPesanan');
+      ringkasanPesanan.innerHTML = '';
+
+      pesanan.forEach(item => {
+        ringkasanPesanan.innerHTML += `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.nama}</h5>
+                        <p class="card-text">Jumlah: ${item.kiloan}</p>
+                        <p class="card-text">Total: ${item.total}</p>
+                        <button class="btn btn-warning" onclick="editBarang('${item.nama}')">Edit</button>
+                        <button class="btn btn-danger" onclick="hapusBarang('${item.nama}')">Hapus</button>
+                    </div>
+                </div>
+            `;
+      });
+    }
+
+    function editBarang(nama) {
+      const index = pesanan.findIndex(item => item.nama === nama);
+
+      if (index !== -1) {
+        const newKiloan = prompt(`Edit jumlah kiloan untuk ${nama}:`, pesanan[index].kiloan);
+
+        if (newKiloan !== null && !isNaN(newKiloan)) {
+          pesanan[index].kiloan = parseFloat(newKiloan);
+          pesanan[index].total = pesanan[index].kiloan * pesanan[index].harga;
+          updateRingkasanPesanan();
+        }
+      }
+    }
+
+    function updateRingkasanPesanan() {
+      const ringkasanPesanan = document.getElementById('ringkasanPesanan');
+      ringkasanPesanan.innerHTML = '';
+
+      pesanan.forEach((item, index) => {
+        ringkasanPesanan.innerHTML += `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${item.nama}</h5>
+            <p class="card-text">Jumlah: ${item.kiloan}</p>
+            <p class="card-text">Total: ${item.total}</p>
+            <button class="btn btn-warning" onclick="editBarang('${item.nama}')">Edit</button>
+            <button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button>
+          </div>
+        </div>
+      `;
+      });
+    }
+
+    function hapusBarang(index) {
+      pesanan.splice(index, 1);
+      updateRingkasanPesanan();
+    }
+
+    function prosesPesanan() {
+      // Cek apakah ada pesanan yang dimasukkan
+      if (pesanan.length === 0) {
+        alert('Tambahkan barang ke dalam pesanan terlebih dahulu.');
+        return;
+      }
+
+      // Membuat pesan WhatsApp dengan detail pesanan
+      let pesanWhatsApp = 'Pesanan baru:\n';
+      pesanan.forEach(item => {
+        pesanWhatsApp += `${item.nama} - Jumlah: ${item.kiloan} kg - Total: ${item.total} \n`;
+      });
+
+      // Membuka aplikasi WhatsApp dengan pesan yang sudah diisi
+      window.open(`https://wa.me/6281295059739?text=${encodeURIComponent(pesanWhatsApp)}`, '_blank');
+
+      // Memberikan pemberitahuan bahwa pesanan telah diproses
+      alert('Pesanan telah diproses. Silakan hubungi +62 812-9505-9739 melalui WhatsApp untuk konfirmasi.');
+    }
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script> <!-- Menghubungkan ke file JavaScript terpisah -->
+  <script src="service-worker.js"></script>
+</body>
+
+</html>

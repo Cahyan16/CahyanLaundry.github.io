@@ -1,0 +1,71 @@
+body .login-container,
+.splash-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+body .splash-screen {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+#splash {
+  text-align: center;
+}
+
+#splash img {
+  width: 100px;
+  /* Sesuaikan dengan lebar ikon Anda */
+  height: 100px;
+  /* Sesuaikan dengan tinggi ikon Anda */
+}
+
+#splash h1 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+#main-content {
+  display: none;
+}
+
+.login-container {
+  display: none;
+}
+
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.login-container {
+  display: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+
+/* Add other custom styles here */
